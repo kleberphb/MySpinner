@@ -1,0 +1,54 @@
+apply plugin: 'com.android.library'
+
+android {
+    compileSdkVersion 28
+
+
+    defaultConfig {
+        minSdkVersion 19
+        targetSdkVersion 28
+        versionCode 1
+        versionName "1.0"
+
+        testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
+
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+    }
+
+}
+
+dependencies {
+    implementation fileTree(dir: 'libs', include: ['*.jar'])
+
+    implementation 'com.android.support:appcompat-v7:28.0.0'
+    testImplementation 'junit:junit:4.12'
+    androidTestImplementation 'com.android.support.test:runner:1.0.2'
+    androidTestImplementation 'com.android.support.test.espresso:espresso-core:3.0.2'
+}
+
+ext {
+    bintrayRepo = 'evo-spinner'
+    bintrayName = 'evo-spinner'
+    publishedGroupId = 'com.example.kleberphb'
+    libraryName = 'EvoSpinner'
+    artifact = 'evo-spinner'
+    libraryDescription = 'A custom image viewer for Android'
+    //siteUrl = 'https://github.com/evandroferreiras/my-android-image-view'
+    //gitUrl = 'https://github.com/evandroferreiras/my-android-image-view.git'
+    libraryVersion = '0.0.1'
+    developerId = 'kleberphb'
+    developerName = 'Kleber Miranda'
+    developerEmail = 'kleber.1500@gmail.com'
+    licenseName = 'The Apache Software License, Version 2.0'
+    licenseUrl = 'http://www.apache.org/licenses/LICENSE-2.0.txt'
+    allLicenses = ["Apache-2.0"]
+}
+
+apply from: 'https://raw.githubusercontent.com/evandroferreiras/my-android-image-view/scripts/scripts/install.gradle'
+apply from: 'https://raw.githubusercontent.com/evandroferreiras/my-android-image-view/scripts/scripts/bintray.gradle'
